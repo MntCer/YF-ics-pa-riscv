@@ -82,6 +82,9 @@ static void execute(uint64_t n) {
   }
 }
 
+/**
+ * @brief Output the statistics of execution.
+*/
 static void statistic() {
   IFNDEF(CONFIG_TARGET_AM, setlocale(LC_NUMERIC, ""));
 #define NUMBERIC_FMT MUXDEF(CONFIG_TARGET_AM, "%", "%'") PRIu64
