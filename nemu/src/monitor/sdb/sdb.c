@@ -55,10 +55,28 @@ static int cmd_q(char *args) {
 static int cmd_help(char *args);
 
 static int cmd_si(char *args) {
-  int len=strlen(args);
-  int i=0;
-  while(i<len&&args[i]>=48&&args[i++]<=57);
-  i==len?cpu_exec(atoi(args)):printf("Invalid argument\n");
+  int n=0;
+  int arg_check = sscanf(args,"%d",&n);
+  arg_check!=0?cpu_exec(n):printf("Invalid argument\n");
+  return 0;
+}
+
+static int cmd_info(char *args){
+  if(strcmp(args,"r")==0) isa_reg_display();
+  // else if(strcmp(args,"w")) //TODO: watchpoint
+  else printf("Invalid argument\n");
+  return 0;
+}
+
+static int cmd_x(char *args){
+  int n=0;
+  int bias=0;
+  int arg_check = sscanf(args,"%d 0[xX]%x",&n,&bias);
+  if(arg_check!=2) printf("Invalid argument\n");
+  else{
+    
+  }
+
   return 0;
 }
 
@@ -71,6 +89,8 @@ static struct {
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
   { "si", "si <n>, single <n> step", cmd_si },
+  { "info", "info r: print register;\ninfo w: print watchpoint", cmd_info},
+  { "x", "x <n> <expr>, print the content of memory", cmd_x},
 
   /* TODO: Add more commands */
 
