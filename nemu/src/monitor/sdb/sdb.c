@@ -74,7 +74,7 @@ static int cmd_x(char *args){
   int arg_check = sscanf(args,"%d 0[xX]%x",&n,&bias);
   if(arg_check!=2) printf("Invalid argument\n");
   else{
-    
+
   }
 
   return 0;
