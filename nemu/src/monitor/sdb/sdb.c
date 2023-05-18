@@ -77,8 +77,7 @@ static int cmd_x(char *args){
   else{
     for(int i=0;i<n;i++){
       printf("0x%x: ",bias+i*4);
-      uint32_t temp=paddr_read(bias+i*4,4)&0xffffffff;
-      printf("0x%08x\n",temp);
+      printf("0x%08x\n", (uint32_t) paddr_read(bias+i*4,4));
     }
   }
   return 0;
