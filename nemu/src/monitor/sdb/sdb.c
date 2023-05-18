@@ -74,9 +74,11 @@ static int cmd_x(char *args){
   int arg_check = sscanf(args,"%d 0[xX]%x",&n,&bias);
   if(arg_check!=2) printf("Invalid argument\n");
   else{
-
+    for(int i=0;i<n;i++){
+      printf("0x%x: ",bias+i*4);
+      printf("0x%08x\n",paddr_read(bias+i*4,4));
+    }
   }
-
   return 0;
 }
 
