@@ -68,6 +68,7 @@ static int cmd_info(char *args){
   return 0;
 }
 
+word_t paddr_read(paddr_t addr, int len); // defined in memory/paddr.c
 static int cmd_x(char *args){
   int n=0;
   int bias=0;
