@@ -55,6 +55,7 @@ static int cmd_q(char *args) {
 static int cmd_help(char *args);
 
 static int cmd_si(char *args) {
+  //TODO: where to call this?
   int n=0;
   int arg_check = sscanf(args,"%d",&n);
   arg_check!=0?cpu_exec(n):printf("Invalid argument\n");
